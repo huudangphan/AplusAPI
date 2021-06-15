@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{836F1EBC-120B-42A6-A538-140729ED4FA8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Apzon.Services</RootNamespace>
+    <AssemblyName>Apzon.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.SAPbobsCOM">
+      <HintPath>..\dll\Interop.SAPbobsCOM.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Transactions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseServie.cs" />
+    <Compile Include="DataSourceModel.cs" />
+    <Compile Include="Interfaces\Administrator\Banking\ICreditCard.cs" />
+    <Compile Include="Interfaces\Administrator\Banking\ICreditCardPaymentMethods.cs" />
+    <Compile Include="Interfaces\Administrator\Business Partners\IBusinessPartnerProperties.cs" />
+    <Compile Include="Interfaces\Administrator\Business Partners\IBusinessPrioritiesSetup.cs" />
+    <Compile Include="Interfaces\Administrator\Business Partners\IGroupCustomerVender.cs" />
+    <Compile Include="Interfaces\Administrator\Business Partners\IPaymentTerm.cs" />
+    <Compile Include="Interfaces\Administrator\IActivityCalendar.cs" />
+    <Compile Include="Interfaces\Administrator\IAdministrator.cs" />
+    <Compile Include="Interfaces\Administrator\IAlertOverview.cs" />
+    <Compile Include="Interfaces\Administrator\IAuthorToken.cs" />
+    <Compile Include="Interfaces\Administrator\IBusinessPartnerPriorities.cs" />
+    <Compile Include="Interfaces\Administrator\ICustomsGroup.cs" />
+    <Compile Include="Interfaces\Administrator\IEmpToken.cs" />
+    <Compile Include="Interfaces\Administrator\IFilterSetting.cs" />
+    <Compile Include="Interfaces\Administrator\ILicenseManager.cs" />
+    <Compile Include="Interfaces\Administrator\IPrintLayout.cs" />
+    <Compile Include="Interfaces\Administrator\IState.cs" />
+    <Compile Include="Interfaces\Administrator\IUnitOfMeasure.cs" />
+    <Compile Include="Interfaces\Administrator\IUnitOfMeasureGroups.cs" />
+    <Compile Include="Interfaces\Administrator\IUoMGroupDefinition.cs" />
+    <Compile Include="Interfaces\Administrator\IXtraReportManager.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IAcctCode.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IAuth.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IBarConfig.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IBranches.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IDepartment.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IFreight.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IGeneralSetting.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IHoliday.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IInventoryCycles.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IItemGroups.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IItemProperties.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\ILengthAndWidth.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\ILocation.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\ILoginIRS.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IManufacturers.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\IAttrCodeSetup.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\IBinFieldActivation.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\IBinLocList.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\IBinLocMaster.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\ICycleCountDetermination.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\ICycleCountDeterminationSubTable.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\IWHSubManager.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\IWHSubSetGenPre.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Inventory\IWHSubSetup.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IPriceLists.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IProject.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IRequester.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\ISalesEmployeeBuyer.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\ISalesPersons.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IShippingTypes.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IUserDefault.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IUsers.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IUsersIRS.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IVatGroups.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IVehicle.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IVehicleType.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IWarehouse.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IWeight.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\IWorkingTable.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Purchasing\ILandedCosts.cs" />
+    <Compile Include="Interfaces\Administrator\Setup\Purchasing\ILandedCostsSetup.cs" />
+    <Compile Include="Interfaces\Administrator\SystemInitialization\ICompanyDetails.cs" />
+    <Compile Include="Interfaces\Administrator\SystemInitialization\IDocumentNumbering.cs" />
+    <Compile Include="Interfaces\Administrator\SystemInitialization\IDocumentSettings.cs" />
+    <Compile Include="Interfaces\Administrator\SystemInitialization\ISeries.cs" />
+    <Compile Include="Interfaces\BusinessPartner\IAddresses.cs" />
+    <Compile Include="Interfaces\BusinessPartner\IBusinessMasterDatas.cs" />
+    <Compile Include="Interfaces\BusinessPartner\IContactPersons.cs" />
+    <Compile Include="Interfaces\BusinessPartner\ICountries.cs" />
+    <Compile Include="Interfaces\BusinessPartner\ICreditCardTypes.cs" />
+    <Compile Include="Interfaces\BusinessPartner\ICurrencyCodes.cs" />
+    <Compile Include="Interfaces\BusinessPartner\IOCashDiscounts.cs" />
+    <Compile Include="Interfaces\BusinessPartner\ICashDiscounts.cs" />
+    <Compile Include="Interfaces\BusinessPartner\IBusinessPartnerss.cs" />
+    <Compile Include="Interfaces\BusinessPartner\ICardGroups.cs" />
+    <Compile Include="Interfaces\BusinessPartner\IPaymentTerms.cs" />
+    <Compile Include="Interfaces\BusinessPartner\ISaleEmployeess.cs" />
+    <Compile Include="Interfaces\Commons\ICFL.cs" />
+    <Compile Include="Interfaces\Commons\IChangeLog.cs" />
+    <Compile Include="Interfaces\Commons\ICommonQuotation.cs" />
+    <Compile Include="Interfaces\Commons\ICommons.cs" />
+    <Compile Include="Interfaces\Commons\ICreateFormula.cs" />
+    <Compile Include="Interfaces\Commons\IDiagram.cs" />
+    <Compile Include="Interfaces\Commons\IExRateAndIndex.cs" />
+    <Compile Include="Interfaces\Commons\IFormSetting.cs" />
+    <Compile Include="Interfaces\Commons\IFormula.cs" />
+    <Compile Include="Interfaces\Commons\IIrsConfig.cs" />
+    <Compile Include="Interfaces\Commons\IORW.cs" />
+    <Compile Include="Interfaces\Commons\IQueries.cs" />
+    <Compile Include="Interfaces\Commons\IUDFs.cs" />
+    <Compile Include="Interfaces\Commons\IUDOs.cs" />
+    <Compile Include="Interfaces\Commons\IUDTs.cs" />
+    <Compile Include="Interfaces\DashBoard\IDashBoard.cs" />
+    <Compile Include="Interfaces\DashBoard\IDashboardAuthorization.cs" />
+    <Compile Include="Interfaces\DashBoard\IDashboardCategories.cs" />
+    <Compile Include="Interfaces\DashBoard\IDashBoardTabs.cs" />
+    <Compile Include="Interfaces\Financials\IChartOfAccount.cs" />
+    <Compile Include="Interfaces\Financials\ICostCenters.cs" />
+    <Compile Include="Interfaces\Financials\ICosting.cs" />
+    <Compile Include="Interfaces\Financials\ICurrency.cs" />
+    <Compile Include="Interfaces\Financials\IDimension.cs" />
+    <Compile Include="Interfaces\Financials\IDistributeRule.cs" />
+    <Compile Include="Interfaces\Financials\IDocumentConfirm.cs" />
+    <Compile Include="Interfaces\Financials\IJournalEntries.cs" />
+    <Compile Include="Interfaces\HumanResources\IEmpContract.cs" />
+    <Compile Include="Interfaces\HumanResources\IEmpMasterData.cs" />
+    <Compile Include="Interfaces\HumanResources\IEmpRelatives.cs" />
+    <Compile Include="Interfaces\HumanResources\IHREducation.cs" />
+    <Compile Include="Interfaces\HumanResources\IHRMQualifications.cs" />
+    <Compile Include="Interfaces\HumanResources\IJobVacancy.cs" />
+    <Compile Include="Interfaces\HumanResources\IJVAnswer.cs" />
+    <Compile Include="Interfaces\HumanResources\IJVApplicants.cs" />
+    <Compile Include="Interfaces\HumanResources\IJVInterview.cs" />
+    <Compile Include="Interfaces\HumanResources\IJVQuestion.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\IAllowanceType.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\IDeductionType .cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\IPerIncomeTax.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\ISalaryAllowanceByEmp.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\ISalaryCalculation.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\ISalaryFormula.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\ISalaryInfo.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\ISalaryInfoAdvance.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\ISalaryInfoAllowance.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\ISalaryInfoMainByEmp.cs" />
+    <Compile Include="Interfaces\HumanResources\Salary\ISalaryParameters.cs" />
+    <Compile Include="Interfaces\HumanResources\TimeSheeting\ITimeSheeting.cs" />
+    <Compile Include="Interfaces\HumanResources\TimeSheeting\ITimeSheetingHour.cs" />
+    <Compile Include="Interfaces\HumanResources\TimeSheeting\IWorkPeriod.cs" />
+    <Compile Include="Interfaces\ImportData\IImportBOM.cs" />
+    <Compile Include="Interfaces\ImportData\IImportData.cs" />
+    <Compile Include="Interfaces\ImportData\IImportDataBP.cs" />
+    <Compile Include="Interfaces\ImportData\IImportItemMasterData.cs" />
+    <Compile Include="Interfaces\Integrated\IIntegrated.cs" />
+    <Compile Include="Interfaces\Integrated\IIntegratedBP.cs" />
+    <Compile Include="Interfaces\Integrated\IIntegratedInventoryTransfer.cs" />
+    <Compile Include="Interfaces\Integrated\IIntegratedWarehouse.cs" />
+    <Compile Include="Interfaces\Inventory\Batches\IBatchDetail.cs" />
+    <Compile Include="Interfaces\Inventory\Batches\IBatchesControl.cs" />
+    <Compile Include="Interfaces\Inventory\Batches\IBatchTransaction.cs" />
+    <Compile Include="Interfaces\Inventory\IItemMasterData.cs" />
+    <Compile Include="Interfaces\Inventory\IMaterialRevaluation.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryReport\IInventoryInWareHouse.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryReport\IInventoryPostingList.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryReport\IInventoryReport.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\ICycleCountRecommendation.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IGoodsIssueIt.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IGoodReceiptIt.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IInventoryConfirm.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IInventoryCouting.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IInventoryCoutingBin.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IInventoryRevaluation.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IInventoryTranfer.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IPickAndPack.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\IStockRequest.cs" />
+    <Compile Include="Interfaces\Inventory\InventoryTransaction\ITranferRequest.cs" />
+    <Compile Include="Interfaces\Inventory\IOCYC.cs" />
+    <Compile Include="Interfaces\Inventory\IPacking.cs" />
+    <Compile Include="Interfaces\Inventory\IShipping.cs" />
+    <Compile Include="Interfaces\Inventory\ISpecialBP.cs" />
+    <Compile Include="Interfaces\Inventory\ISpecialBP_LineSPP1.cs" />
+    <Compile Include="Interfaces\Inventory\ISpecialBP_LineSPP2.cs" />
+    <Compile Include="Interfaces\Inventory\ItemManagement\IBusinessPartnerCatalogNumbers.cs" />
+    <Compile Include="Interfaces\Inventory\ItemManagement\ISerialNumberDetails.cs" />
+    <Compile Include="Interfaces\Inventory\ItemManagement\ISerialNumberTransactions.cs" />
+    <Compile Include="Interfaces\Inventory\PickAndpack\IPicking.cs" />
+    <Compile Include="Interfaces\Inventory\PriceLists\IDiscountGroup.cs" />
+    <Compile Include="Interfaces\Inventory\PriceLists\IPeriodAndVolumeDiscounts.cs" />
+    <Compile Include="Interfaces\Inventory\PriceLists\ISTDPriceLists.cs" />
+    <Compile Include="Interfaces\Mrps\IAdvanceForecast.cs" />
+    <Compile Include="Interfaces\Mrps\IForecast.cs" />
+    <Compile Include="Interfaces\Mrps\IItemQuotaArrangement.cs" />
+    <Compile Include="Interfaces\Mrps\IItemQuotaArrangementDate.cs" />
+    <Compile Include="Interfaces\Mrps\ILines.cs" />
+    <Compile Include="Interfaces\Mrps\IMRP.cs" />
+    <Compile Include="Interfaces\Mrps\ISalesForeCast.cs" />
+    <Compile Include="Interfaces\Mrps\ISchedule.cs" />
+    <Compile Include="Interfaces\Opportunity\IActivitiesForOpportunity.cs" />
+    <Compile Include="Interfaces\Opportunity\IActivityMeetingLocation.cs" />
+    <Compile Include="Interfaces\Opportunity\IActivityStatus.cs" />
+    <Compile Include="Interfaces\Opportunity\IActivitySubjects.cs" />
+    <Compile Include="Interfaces\Opportunity\IActivityType.cs" />
+    <Compile Include="Interfaces\Opportunity\IOpportunity.cs" />
+    <Compile Include="Interfaces\Opportunity\IOpportunityCompetitor.cs" />
+    <Compile Include="Interfaces\Opportunity\IOpportunityPartner.cs" />
+    <Compile Include="Interfaces\Opportunity\IOpportunityReason.cs" />
+    <Compile Include="Interfaces\Opportunity\IOpportunityRelationship.cs" />
+    <Compile Include="Interfaces\Opportunity\IOpportunityStage.cs" />
+    <Compile Include="Interfaces\Payment\IIncomingPayment.cs" />
+    <Compile Include="Interfaces\Payment\IOutgoingPayment.cs" />
+    <Compile Include="Interfaces\PlanningProduction\IMps.cs" />
+    <Compile Include="Interfaces\PlanningProduction\IMrpPlan.cs" />
+    <Compile Include="Interfaces\PlanningProduction\IShift.cs" />
+    <Compile Include="Interfaces\PlanningProduction\IWorkScheduling.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IApzBillOfMaterials.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IControlKey.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IGroupControlKey.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IListPlant.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IMasterOrderReplan.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IOperation.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IProductionControl.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IProductionPlanning.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IReportCompleteForProduction.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IResources.cs" />
+    <Compile Include="Interfaces\ProductionAddon\IRouting.cs" />
+    <Compile Include="Interfaces\ProductionAddon\ISpecialIssueForBatch.cs" />
+    <Compile Include="Interfaces\ProductionAddon\ITinhGiay.cs" />
+    <Compile Include="Interfaces\Production\IBillOfMasterials.cs" />
+    <Compile Include="Interfaces\Production\IBoMJob.cs" />
+    <Compile Include="Interfaces\Production\IBomVersion.cs" />
+    <Compile Include="Interfaces\Production\IIssueForProduction.cs" />
+    <Compile Include="Interfaces\Production\IMaterialShortageReport.cs" />
+    <Compile Include="Interfaces\Production\IPackingBatch.cs" />
+    <Compile Include="Interfaces\Production\IProductionConfirm.cs" />
+    <Compile Include="Interfaces\Production\IProductionForBatch.cs" />
+    <Compile Include="Interfaces\Production\IProductionOder.cs" />
+    <Compile Include="Interfaces\Production\IProductionOrderImportTool.cs" />
+    <Compile Include="Interfaces\Production\IReceiptProduction.cs" />
+    <Compile Include="Interfaces\Purchase\IILandedCost.cs" />
+    <Compile Include="Interfaces\Purchase\IPurchaseRequest.cs" />
+    <Compile Include="Interfaces\Retail\IRetail.cs" />
+    <Compile Include="Interfaces\Retail\IRetailChooseFromList.cs" />
+    <Compile Include="Interfaces\Retail\IRetailCustomerSearch.cs" />
+    <Compile Include="Interfaces\Retail\IRetailItemSearch.cs" />
+    <Compile Include="Interfaces\Retail\IRetailStore.cs" />
+    <Compile Include="Interfaces\Sales\IAtp.cs" />
+    <Compile Include="Interfaces\Sales\IDeliveryConfirm.cs" />
+    <Compile Include="Interfaces\Sales\IDeliveryControl.cs" />
+    <Compile Include="Interfaces\Sales\IDocument.cs" />
+    <Compile Include="Interfaces\Sales\IDocumentDraft.cs" />
+    <Compile Include="Interfaces\Sales\IHandoverDocument.cs" />
+    <Compile Include="Interfaces\Sales\ISalesBlanketAgreement.cs" />
+    <Compile Include="Interfaces\Sales\ISalesControl.cs" />
+    <Compile Include="Interfaces\Service\IServiceCall.cs" />
+    <Compile Include="Interfaces\Service\IServiceCallSeting.cs" />
+    <Compile Include="Interfaces\Service\IServiceContract.cs" />
+    <Compile Include="Interfaces\Service\Isolution.cs" />
+    <Compile Include="Interfaces\Udos\IUserObject.cs" />
+    <Compile Include="Interfaces\Util\IAdvancePeriodClosing.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="ITransaction.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Administrator\ActivityCalendarRepository.cs" />
+    <Compile Include="Repository\Administrator\AdministratorRepository.cs" />
+    <Compile Include="Repository\Administrator\AlertOverviewRepository.cs" />
+    <Compile Include="Repository\Administrator\AuthorTokenRepository.cs" />
+    <Compile Include="Repository\Administrator\Banking\CreditCardPaymentMehodsRepository.cs" />
+    <Compile Include="Repository\Administrator\Banking\CreditCardRepository.cs" />
+    <Compile Include="Repository\Administrator\Business Partner\BusinessPartnerPrioritiesRepository.cs" />
+    <Compile Include="Repository\Administrator\Business Partner\BusinessPartnerPropertiesRepository.cs" />
+    <Compile Include="Repository\Administrator\Business Partner\CountriesRepository.cs" />
+    <Compile Include="Repository\Administrator\Business Partner\GroupCustomerVenderRepository.cs" />
+    <Compile Include="Repository\Administrator\CustomsGroupRepository.cs" />
+    <Compile Include="Repository\Administrator\EmpTokenRepository.cs" />
+    <Compile Include="Repository\Administrator\FilterSettingRepository.cs" />
+    <Compile Include="Repository\Administrator\GeneralSettingRepository.cs" />
+    <Compile Include="Repository\Administrator\LicenseManagerRepository.cs" />
+    <Compile Include="Repository\Administrator\PrintLayoutRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\AcctCodeRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\AuthRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\BarConfigRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\BranchesRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\DepartmentRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\FreightRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\HolidayRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\InventoryCyclesRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\AttrCodeSetupRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\BinFieldActivationRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\BinLocListRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\BinLocMasterRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\CycleCountDeterminationRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\CycleCountDeterminationSubTableRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\WHSubManagerRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\WHSubSetGenPreRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Inventory\WHSubSetupRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\ItemGroupsRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\ItemPropertiesRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\LengthAndWidthRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\LocationRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\LoginIRSRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\ManufacturersRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\PriceListsRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\ProjectRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Purchasing\LandedCostsRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\Purchasing\LandedCostsSetupRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\RequesterRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\SalesEmployeeBuyerRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\SalesPersonsRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\ShippingTypesRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\StateRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\UserDefaultRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\UsersIRSRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\VatGroupsRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\VehicleRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\VehicleTypeRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\WarehouseRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\WeightRepository.cs" />
+    <Compile Include="Repository\Administrator\Setup\WorkingTableRepository.cs" />
+    <Compile Include="Repository\Administrator\SystemInitialization\CompanyDetailsRepository.cs" />
+    <Compile Include="Repository\Administrator\SystemInitialization\DocumentNumberingRepository.cs" />
+    <Compile Include="Repository\Administrator\SystemInitialization\DocumentSettingsRepository.cs" />
+    <Compile Include="Repository\Administrator\SystemInitialization\SeriesRepository.cs" />
+    <Compile Include="Repository\Administrator\UnitOfMeasureGroupsRepository.cs" />
+    <Compile Include="Repository\Administrator\UnitOfMeasureRepository.cs" />
+    <Compile Include="Repository\Administrator\UoMGroupDefinitionRepository.cs" />
+    <Compile Include="Repository\Administrator\UsersRepository.cs" />
+    <Compile Include="Repository\Administrator\XtraReportManagerRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\BpAddressRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\BusinessMasterDataRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\BusinessPartnerRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\CardGroupRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\CashDiscountRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\ContactPersonRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\CreditCardTypeRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\CurrencyCodeRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\OCashDiscountRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\EmployeeRepository.cs" />
+    <Compile Include="Repository\BusinessPartner\PaymentTermRepository.cs" />
+    <Compile Include="Repository\Commons\CFLRepository.cs" />
+    <Compile Include="Repository\Commons\ChangeLogRepository.cs" />
+    <Compile Include="Repository\Commons\CommonQuotation.cs" />
+    <Compile Include="Repository\Commons\CommonsRepository.cs" />
+    <Compile Include="Repository\Commons\CreateFormulaRepository.cs" />
+    <Compile Include="Repository\Commons\DiagramRepository.cs" />
+    <Compile Include="Repository\Commons\ExRateAndIndexRepository.cs" />
+    <Compile Include="Repository\Commons\FormSettingRepository.cs" />
+    <Compile Include="Repository\Commons\FormulaRepository.cs" />
+    <Compile Include="Repository\Commons\IrsConfigRepository.cs" />
+    <Compile Include="Repository\Commons\ORWRepository.cs" />
+    <Compile Include="Repository\Commons\QueriesRepository.cs" />
+    <Compile Include="Repository\Commons\UDFRepository.cs" />
+    <Compile Include="Repository\Commons\UDORepository.cs" />
+    <Compile Include="Repository\Commons\UDTRepository.cs" />
+    <Compile Include="Repository\DashBoard\DashBoardAuthRepository.cs" />
+    <Compile Include="Repository\DashBoard\DashboardCategoriesRepository.cs" />
+    <Compile Include="Repository\DashBoard\DashBoardRepository.cs" />
+    <Compile Include="Repository\DashBoard\DashBoardTabsRepository.cs" />
+    <Compile Include="Repository\Document\DocumentRepository.cs" />
+    <Compile Include="Repository\Financials\ChartOfAccountRepository.cs" />
+    <Compile Include="Repository\Financials\CostCentersRepository.cs" />
+    <Compile Include="Repository\Financials\CostingRepository.cs" />
+    <Compile Include="Repository\Financials\CurrenciesRepository.cs" />
+    <Compile Include="Repository\Financials\DimensionRepository.cs" />
+    <Compile Include="Repository\Financials\DistributeRuleRepository.cs" />
+    <Compile Include="Repository\Financials\DocumentConfirmRepository.cs" />
+    <Compile Include="Repository\Financials\JournalEntriesRepository.cs" />
+    <Compile Include="Repository\HumanResources\EmpContractRepository.cs" />
+    <Compile Include="Repository\HumanResources\EmpMasterDataRepository.cs" />
+    <Compile Include="Repository\HumanResources\EmpRelativesRepository.cs" />
+    <Compile Include="Repository\HumanResources\HREducationRepository.cs" />
+    <Compile Include="Repository\HumanResources\HRMQualificationsRepository.cs" />
+    <Compile Include="Repository\HumanResources\JobVacancyRepository.cs" />
+    <Compile Include="Repository\HumanResources\JVAnswerRepository.cs" />
+    <Compile Include="Repository\HumanResources\JVApplicantsRepository.cs" />
+    <Compile Include="Repository\HumanResources\JVInterviewRepository .cs" />
+    <Compile Include="Repository\HumanResources\JVQuestionRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\AllowanceTypeRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\DeductionTypeRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\PerIncomeTaxRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\SalaryAllowanceByEmpRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\SalaryCalculationRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\SalaryFormulaRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\SalaryInfoAdvanceRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\SalaryInfoAllowanceRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\SalaryInfoMainByEmpRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\SalaryInfoRepository.cs" />
+    <Compile Include="Repository\HumanResources\Salary\SalaryParametersRepository.cs" />
+    <Compile Include="Repository\HumanResources\TimeSheeting\TimeSheetingHourRepository.cs" />
+    <Compile Include="Repository\HumanResources\TimeSheeting\TimeSheetingRepository.cs" />
+    <Compile Include="Repository\HumanResources\TimeSheeting\WorkPeriodRepository.cs" />
+    <Compile Include="Repository\ImportData\BaseImportData.cs" />
+    <Compile Include="Repository\ImportData\BaseImportDataFactory.cs" />
+    <Compile Include="Repository\ImportData\BillOfMaterials\ImportDataBillOfMaterials.cs" />
+    <Compile Include="Repository\ImportData\BusinessPartners\ImportDataBPMaster.cs" />
+    <Compile Include="Repository\ImportData\HumanResources\ImportDataEmployees.cs" />
+    <Compile Include="Repository\ImportData\ImportBOMRepository.cs" />
+    <Compile Include="Repository\ImportData\ImportDataBPRepository.cs" />
+    <Compile Include="Repository\ImportData\ImportDataRepository.cs" />
+    <Compile Include="Repository\ImportData\ImportItemMasterDataRepository.cs" />
+    <Compile Include="Repository\ImportData\Inventory\ImportDataItemMaster.cs" />
+    <Compile Include="Repository\Integrated\IntegratedBPRepository.cs" />
+    <Compile Include="Repository\Integrated\IntegratedInventoryTransferRepository.cs" />
+    <Compile Include="Repository\Integrated\IntegratedRepository.cs" />
+    <Compile Include="Repository\Integrated\IntegratedWarehouseRepository.cs" />
+    <Compile Include="Repository\Inventory\Batches\BatchesControlRepository.cs" />
+    <Compile Include="Repository\Inventory\Batches\BatchTransactionRepository.cs" />
+    <Compile Include="Repository\Inventory\Batches\BathDetailsRepository.cs" />
+    <Compile Include="Repository\Inventory\InventoryReport\InventoryInWareHouseRepository.cs" />
+    <Compile Include="Repository\Inventory\InventoryReport\InventoryPostingListRepository.cs" />
+    <Compile Include="Repository\Inventory\InventoryReport\InventoryReportRepository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\CycleCountRecommendationRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\GoodsIssueItRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\GoodReceiptItRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\InventoryConfirmRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\InventoryCoutingBinRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\InventoryCoutingRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\InventoryRevaluationRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\InventoryTranferRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\PickAndPackRespository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\StockRequestRepository.cs" />
+    <Compile Include="Repository\Inventory\InventoryTransaction\TranferRequestRespository.cs" />
+    <Compile Include="Repository\Inventory\ItemManagement\BusinessPartnerCatalogNumbersRespository.cs" />
+    <Compile Include="Repository\Inventory\ItemManagement\SerialNumberDetailsRespository.cs" />
+    <Compile Include="Repository\Inventory\ItemManagement\SerialNumberTransactionsRespository.cs" />
+    <Compile Include="Repository\Inventory\ItemMasterDataRepository.cs" />
+    <Compile Include="Repository\Inventory\MaterialRevaluationRepository.cs" />
+    <Compile Include="Repository\Inventory\OCYCRepository.cs" />
+    <Compile Include="Repository\Inventory\PackingRepository.cs" />
+    <Compile Include="Repository\Inventory\PickAndPack\PickingRepository.cs" />
+    <Compile Include="Repository\Inventory\PriceLists\DiscountGroupRepository.cs" />
+    <Compile Include="Repository\Inventory\PriceLists\PeriodAndVolumeDiscountsRepository.cs" />
+    <Compile Include="Repository\Inventory\PriceLists\STDPriceListsRepository.cs" />
+    <Compile Include="Repository\Inventory\ShippingRepository.cs" />
+    <Compile Include="Repository\Inventory\SpecialBpRespository.cs" />
+    <Compile Include="Repository\Inventory\SpecialBp_LineSPP1Respository.cs" />
+    <Compile Include="Repository\Inventory\SpecialBp_LineSPP2Respository.cs" />
+    <Compile Include="Repository\Mrps\AdvanceForecastRepository.cs" />
+    <Compile Include="Repository\Mrps\ForecastRepository.cs" />
+    <Compile Include="Repository\Mrps\ItemQuotaArrangementDateRepository.cs" />
+    <Compile Include="Repository\Mrps\ItemQuotaArrangementRepository.cs" />
+    <Compile Include="Repository\Mrps\LinesRepository.cs" />
+    <Compile Include="Repository\Mrps\MRPRepository.cs" />
+    <Compile Include="Repository\Mrps\SalesForeCastRepository.cs" />
+    <Compile Include="Repository\Mrps\ScheduleRepository.cs" />
+    <Compile Include="Repository\Opportunity\ActivitiesForOpportunityRepository.cs" />
+    <Compile Include="Repository\Opportunity\ActivityMeetingLocationRepository.cs" />
+    <Compile Include="Repository\Opportunity\ActivityStatusRepository.cs" />
+    <Compile Include="Repository\Opportunity\ActivitySubjectsRepository.cs" />
+    <Compile Include="Repository\Opportunity\ActivityTypeRepository.cs" />
+    <Compile Include="Repository\Opportunity\OpportunityCompetitorRepository.cs" />
+    <Compile Include="Repository\Opportunity\OpportunityPartnerRepository.cs" />
+    <Compile Include="Repository\Opportunity\OpportunityReasonRepository.cs" />
+    <Compile Include="Repository\Opportunity\OpportunityRelationshipRepository.cs" />
+    <Compile Include="Repository\Opportunity\OpportunityRepository.cs" />
+    <Compile Include="Repository\Opportunity\OpportunityStageRepository.cs" />
+    <Compile Include="Repository\Payment\IncomingPaymentRepository.cs" />
+    <Compile Include="Repository\Payment\OutgoingPaymentRepository.cs" />
+    <Compile Include="Repository\PlanningProduction\MpsRepository.cs" />
+    <Compile Include="Repository\PlanningProduction\MrpPlanRepository.cs" />
+    <Compile Include="Repository\PlanningProduction\ShiftRepository.cs" />
+    <Compile Include="Repository\PlanningProduction\WorkSchedulingRepository.cs" />
+    <Compile Include="Repository\Production\BillOfMasterialsRepository.cs" />
+    <Compile Include="Repository\Production\BomJobRepository.cs" />
+    <Compile Include="Repository\Production\BomVersionRepository.cs" />
+    <Compile Include="Repository\Production\IssueForProductionRepository.cs" />
+    <Compile Include="Repository\Production\MaterialShortageReportRepository.cs" />
+    <Compile Include="Repository\Production\PackingBatchRepository.cs" />
+    <Compile Include="Repository\Production\ProductionConfirmRepository.cs" />
+    <Compile Include="Repository\Production\ProductionForBatchRepository.cs" />
+    <Compile Include="Repository\Production\ProductionOderRepository.cs" />
+    <Compile Include="Repository\Production\ProductionOrderImportToolRepository.cs" />
+    <Compile Include="Repository\Production\ReceiptProductionRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\ApzBillOfMaterialsRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\ControlKeyRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\GroupControlKeyRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\ListPlantRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\MasterOrderReplanRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\OperationRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\ProductionControlRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\ProductionPlanningRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\ReportCompleteForProductionRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\ResourcesRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\RoutingRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\SpecialIssueForBatchRepository.cs" />
+    <Compile Include="Repository\ProdutionAddon\TinhGiayRepository.cs" />
+    <Compile Include="Repository\Purchase\PLandedCostRepository.cs" />
+    <Compile Include="Repository\Purchase\PurchaseRequestRespository.cs" />
+    <Compile Include="Repository\Retail\RetailChooseFromListRepository.cs" />
+    <Compile Include="Repository\Retail\RetailCustomerSearchRepository.cs" />
+    <Compile Include="Repository\Retail\RetailItemSearchRepository.cs" />
+    <Compile Include="Repository\Retail\RetailRepository.cs" />
+    <Compile Include="Repository\Retail\RetailStoreRepository.cs" />
+    <Compile Include="Repository\Sales\AtpRepository.cs" />
+    <Compile Include="Repository\Sales\DeliveryConfirmRepository.cs" />
+    <Compile Include="Repository\Sales\DeliveryControlRepository.cs" />
+    <Compile Include="Repository\Sales\DocumentDraftRepository.cs" />
+    <Compile Include="Repository\Sales\HandoverDocumentRepository.cs" />
+    <Compile Include="Repository\Sales\SalesBlanketAgreementRepository.cs" />
+    <Compile Include="Repository\Sales\SalesControlRepository.cs" />
+    <Compile Include="Repository\Service\ServiceCallRepository.cs" />
+    <Compile Include="Repository\Service\ServiceCallSettingRepository.cs" />
+    <Compile Include="Repository\Service\ServiceContractRepository.cs" />
+    <Compile Include="Repository\Service\SolutionRepository.cs" />
+    <Compile Include="Repository\Udos\UserObjectRepository.cs" />
+    <Compile Include="Repository\Util\AdvancePeriodClosingRepository.cs" />
+    <Compile Include="ServiceHelper.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="UnitOfWorkFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repository\Inventory\BusinessPartner\" />
+    <Folder Include="Repository\Production\PlanningProduction\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Apzon.Commons\Apzon.Commons.csproj">
+      <Project>{c6a1c573-9687-47b6-a976-8ee03bbc6075}</Project>
+      <Name>Apzon.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Apzon.Entities\Apzon.Entities.csproj">
+      <Project>{fa21ed61-b757-4703-9b25-7b4d23e6472e}</Project>
+      <Name>Apzon.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

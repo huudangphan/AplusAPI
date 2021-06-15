@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Apzon.Libraries.HDBConnection\Apzon.Libraries.HDBConnection.csproj" />
+    <ProjectReference Include="..\Apzon.PosmanErp.Commons\Apzon.PosmanErp.Commons.csproj" />
+    <ProjectReference Include="..\Apzon.PosmanErp.Entities\Apzon.PosmanErp.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

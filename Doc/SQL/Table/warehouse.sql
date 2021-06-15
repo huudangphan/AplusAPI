@@ -1,0 +1,56 @@
+create table warehouse
+(
+    whs_code     varchar(8) not null primary key,
+    whs_name     varchar(254),
+    status       varchar(1) default 'A'::character varying(1),
+    user_sign    smallint,
+    user_sign2   smallint,
+    street       varchar(100),
+    block        varchar(100),
+    zip_code     varchar(20),
+    ward         varchar(50),
+    district     varchar(50),
+    city         varchar(100),
+    country      varchar(50),
+    drop_ship    varchar(1) default 'N'::character varying(1),
+    create_date  date,
+    create_time  smallint,
+    update_date  date,
+    update_time  smallint,
+    cpn_code     varchar(50),
+    shipper      varchar(50),
+    dft_bin_abs  integer,
+    dft_bin_enfd varchar(1) default 'N'::character varying(1),
+    bin_activat  varchar(1) default 'N'::character varying(1),
+    bin_septor   varchar(5)
+);
+
+create table warehouse_log
+(
+    log_instance_id int        not null,
+    whs_code        varchar(8) not null,
+    primary key (log_instance_id, whs_code),
+    whs_name        varchar(254),
+    status          varchar(1) default 'A'::character varying(1),
+    user_sign       smallint,
+    user_sign2      smallint,
+    street          varchar(100),
+    block           varchar(100),
+    zip_code        varchar(20),
+    ward            varchar(50),
+    district        varchar(50),
+    city            varchar(100),
+    country         varchar(50),
+    drop_ship       varchar(1) default 'N'::character varying(1),
+    create_date     date,
+    create_time     smallint,
+    update_date     date,
+    update_time     smallint,
+    cpn_code        varchar(50),
+    shipper         varchar(50),
+    dft_bin_abs     integer,
+    dft_bin_enfd    varchar(1) default 'N'::character varying(1),
+    bin_activat     varchar(1) default 'N'::character varying(1),
+    bin_septor      varchar(5)
+);
+

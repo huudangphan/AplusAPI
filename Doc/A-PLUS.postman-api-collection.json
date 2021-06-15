@@ -1,0 +1,856 @@
+{
+	"info": {
+		"_postman_id": "a035816b-e197-4ec2-9c25-dfbdf29ec7d4",
+		"name": "A-PLUS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Administrator",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "PriceList",
+							"item": [
+								{
+									"name": "Get",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/PriceList/Get",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"PriceList",
+												"Get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get By Id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/PriceList/GetByEntry?entry=3",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"PriceList",
+												"GetByEntry"
+											],
+											"query": [
+												{
+													"key": "entry",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"price_list\": [\r\n        {\r\n            \"list_name\": \"Bảng giá nhập\",\r\n            \"is_gross_prc\": \"N\",\r\n            \"valid_for\": \"Y\",\r\n            \"valid_from\": \"2021-02-03\",\r\n            \"valid_to\": \"2021-04-03\",\r\n            \"prim_curr\": \"VND\",\r\n            \"remarks\": \"Bảng giá nhập của Các mặt hàng\"\r\n        }\r\n    ],\r\n    \"item_prices\": [\r\n        {\r\n            \"item_code\": \"S10001\",\r\n            \"price\": 10000.44,\r\n            \"currency\": \"VND\",\r\n            \"add_price1\": 0,\r\n            \"currency1\": \"\",\r\n            \"add_price2\": 0,\r\n            \"currency2\": \"\",\r\n            \"uom_code\": \"KG\"\r\n        },\r\n        {\r\n            \"item_code\": \"S10003\",\r\n            \"price\": 6000.44,\r\n            \"currency\": \"VND\",\r\n            \"add_price1\": 0,\r\n            \"currency1\": \"\",\r\n            \"add_price2\": 0,\r\n            \"currency2\": \"\",\r\n            \"uom_code\": \"KG\"\r\n        },\r\n        {\r\n            \"item_code\": \"S02233\",\r\n            \"price\": 6000.44,\r\n            \"currency\": \"VND\",\r\n            \"add_price1\": 0,\r\n            \"currency1\": \"\",\r\n            \"add_price2\": 0,\r\n            \"currency2\": \"\",\r\n            \"uom_code\": \"KG\"\r\n        },\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/PriceList/Create",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"PriceList",
+												"Create"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"price_list\": [\r\n        {\r\n            \"doc_entry\": 3,\r\n            \"list_name\": \"Bảng giá nhập\",\r\n            \"is_gross_prc\": \"N\",\r\n            \"valid_for\": \"Y\",\r\n            \"valid_from\": \"2021-02-03\",\r\n            \"valid_to\": \"2021-04-03\",\r\n            \"prim_curr\": \"VND\",\r\n            \"remarks\": \"Bảng giá nhập của Các mặt\"\r\n        }\r\n    ],\r\n    \"item_prices\": [\r\n       {\r\n            \"item_code\": \"S10001\",\r\n            \"price\": 10000.44,\r\n            \"currency\": \"VND\",\r\n            \"add_price1\": 0,\r\n            \"currency1\": \"\",\r\n            \"add_price2\": 0,\r\n            \"currency2\": \"\",\r\n            \"uom_code\": \"KG\"\r\n        },\r\n        {\r\n            \"item_code\": \"S10001\",\r\n            \"price\": 6000.44,\r\n            \"currency\": \"VND\",\r\n            \"add_price1\": 0,\r\n            \"currency1\": \"\",\r\n            \"add_price2\": 0,\r\n            \"currency2\": \"\",\r\n            \"uom_code\": \"KG\"\r\n        },\r\n        {\r\n            \"item_code\": \"S02233\",\r\n            \"price\": 6000.44,\r\n            \"currency\": \"VND\",\r\n            \"add_price1\": 0,\r\n            \"currency1\": \"\",\r\n            \"add_price2\": 0,\r\n            \"currency2\": \"\",\r\n            \"uom_code\": \"KG\"\r\n        },\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/PriceList/Update",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"PriceList",
+												"Update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"doc_entry\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/PriceList/Delete",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"PriceList",
+												"Delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"db_name\" : \"{{dbname}}\",\r\n\t\"user_name\" : \"thienthn@apzon.com\",\r\n\t\"password\": \"1234567apzon\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "MasterData",
+			"item": [
+				{
+					"name": "BpGroup",
+					"item": [
+						{
+							"name": "Add Bp group",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"code\": \"BP040\",\r\n        \"type\": \"C\",\r\n        \"name\": \"Customer 1\",\r\n        \"locked\": \"N\",\r\n        \"price_list\": 1,\r\n        \"log_instance\": 1\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/BpGroup/Create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"BpGroup",
+										"Create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get by code",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/BpGroup/GetByCode?code=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"BpGroup",
+										"GetByCode"
+									],
+									"query": [
+										{
+											"key": "code",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Bp Group",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n    \"Code\": \"\",\r\n    \"Name\": \"\",\r\n    \"Status\": \"A\",\r\n    \"PageIndex\": 0,\r\n    \"PageSize\": 0,\r\n    \"OrderBy\": \"\",\r\n    \"IsAscending\": false,\r\n    \"FromDate\": \"10/1/2020\",\r\n    \"ToDate\": \"11/7/2021\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/BaseMasterData/Get",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"BaseMasterData",
+										"Get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Bp Group",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"code\": \"BP001\",\r\n        \"name\": \"CUSTOMER OTHER\",\r\n        \"status\": \"I\",\r\n        \"type\": \"C\",\r\n        \"locked\": \"N\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/BpGroup/Update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"BpGroup",
+										"Update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Bp Group",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"BP040\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/BpGroup/Delete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"BpGroup",
+										"Delete"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "ItemMasterData",
+					"item": [
+						{
+							"name": "Get",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/ItemMasterData/Get",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ItemMasterData",
+										"Get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Item",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ogit\": [\r\n        {\r\n            \"f_itm_code\": \"\",\r\n            \"f_itm_name\": \"Thuoc lao thanh hoa\",\r\n            \"itms_grp_cod\": \"ITM2\",\r\n            \"item_type\": \"S\"\r\n        }\r\n    ],\r\n    \"oitm\": [\r\n        {\r\n            \"item_code\": \"\",\r\n            \r\n            \"f_itm_code\": \"\",\r\n            \"line_id\": 0,\r\n            \"item_type\": \"S\",\r\n            \"itms_grp_cod\": \"ITM2\"\r\n        }\r\n    ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/ItemMasterData/Create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ItemMasterData",
+										"Create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update grand item and item",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ogit\": [\r\n        {\r\n            \"f_itm_code\": \"S10002\",\r\n            \"f_itm_name\": \"anh Vũ chém phũ nhất, anh Sơn thứ 2 - 1\",\r\n            \"itms_grp_cod\": \"ITM2\",\r\n            \"item_type\": \"C\",\r\n        }\r\n    ],\r\n    \"oitm\": [\r\n        {\r\n            \"o_item_code\": \"S10002\",\r\n            \"item_code\": \"S10002\",\r\n            \"item_name\": \"BIBI kick 9\",\r\n            \"f_itm_code\": \"\",\r\n            \"line_id\": 0,\r\n            \"item_type\": \"C\",\r\n            \"itms_grp_cod\": \"ITM2\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/ItemMasterData/Update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ItemMasterData",
+										"Update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get document item",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tran_type\": \"I\",\r\n    \"whs_code\": \"whs100\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/ItemMasterData/GetDocumentItems",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ItemMasterData",
+										"GetDocumentItems"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Item by code",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/ItemMasterData/GetById?id=S10000",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ItemMasterData",
+										"GetById"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "S10000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Document items by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/ItemMasterData/GetDocumentById?id=S10002",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ItemMasterData",
+										"GetDocumentById"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "S10002"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Warehouse",
+					"item": [
+						{
+							"name": "Get warehouse by conditions",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Warehouse/Get",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouse",
+										"Get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get detail by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouse/GetById?id=whs3000",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouse",
+										"GetById"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "whs3000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"whs_code\": \"whs3000\",\r\n        \"whs_name\": \"Macedonian Storage\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Warehouse/Create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouse",
+										"Create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"whs_code\": \"whs3000\",\r\n        \"whs_name\": \"Macedonian Storage\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Warehouse/Update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouse",
+										"Update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"whs_code\": \"whs30000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Warehouse/Delete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouse",
+										"Delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BaseMasterData Get",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"object_type\": 10012,\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/BaseMasterData/Get",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"BaseMasterData",
+								"Get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BaseMasterData GetByCode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"object_type\": 52,\r\n    \"code\": \"ITM2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/BaseMasterData/GetById",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"BaseMasterData",
+								"GetById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BaseMasterData Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"object_type\": 10012,\r\n    \"data\": [\r\n        {\r\n            \"code\": \"V19\",\r\n            \"name\": \"Vat 19\",\r\n            \"status\": \"A\",\r\n            \"rate\": 5.7\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/BaseMasterData/Create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"BaseMasterData",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BaseMasterData Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"object_type\": 10007,\r\n    \"data\": [\r\n        {\r\n            \"code\": \"BPG10405\",\r\n            \"name\": \"Đồ Hàn Quốc\",\r\n            \"status\": \"A\",\r\n            \"type\": \"A\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/BaseMasterData/Update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"BaseMasterData",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BaseMasterData Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"object_type\": 10007,\r\n    \"code\":\"BPG10405\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/BaseMasterData/Delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"BaseMasterData",
+								"Delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJ0aGllbnRobkBhcHpvbi5jb20iLCIzLzMxLzIwMjEgMTE6MDg6NTcgQU0iLCIyMDIxMDQzMCJdLCJuYmYiOjE2MTcxNjM3MzcsImV4cCI6MTYxOTc1NTczNywiaWF0IjoxNjE3MTYzNzM3fQ.KSdn-Pga_okqK5uRkaCiSjGWieUqIOFVEXp-fiPkpUM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4ccc13a5-1330-408b-a94b-813a4b9561bf",
+			"key": "url",
+			"value": "https://localhost:44367/api/v1"
+		},
+		{
+			"id": "8a3b997f-950f-416b-99ae-20cd3db56961",
+			"key": "url",
+			"value": "http://172.16.8.24:9999/api/v1",
+			"disabled": true
+		},
+		{
+			"id": "6ec6ce97-8084-469a-9263-ab7941eb1ae3",
+			"key": "dbname",
+			"value": "POSMAN"
+		}
+	]
+}
