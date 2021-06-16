@@ -106,7 +106,7 @@ namespace PosmanErp
         /// <summary>
         /// Phiên bản hiện tại của API
         /// </summary>
-        public static string version = "1.02.0";
+        public static string version = "1.00.0";
     }
 
     /// <summary>

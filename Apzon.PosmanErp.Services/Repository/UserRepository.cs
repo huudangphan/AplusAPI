@@ -269,7 +269,6 @@ namespace Apzon.PosmanErp.Services.Repository
                 result = version[5].ToString();
                 return Function.ParseInt(result);
             }
-
         }
         /// <summary>
         /// Cập nhật lại Database 
@@ -287,14 +286,17 @@ namespace Apzon.PosmanErp.Services.Repository
             int lLastVer = SplitVersion(lastVer, TypeGetVersion.Last);
             int lMidVer = SplitVersion(lastVer, TypeGetVersion.Mid);
             int lFirstVer = SplitVersion(lastVer, TypeGetVersion.First);
+            // danh sách tên các file update
+            List<string> listFileName = new List<string>();
+            listFileName.Add("Table");
+            listFileName.Add("View");
+            listFileName.Add("Type");
+            listFileName.Add("Function");
+            listFileName.Add("Sto");
+            listFileName.Add("Data");
             if (lFirstVer < curFirstVer || lMidVer < curMidVer || lLastVer < curLastVer)
             {                
-                UpdateFollowType(lFirstVer, lMidVer, lLastVer, curFirstVer, curMidVer, curLastVer, HttpResult.TypeUpdate.Table);
-                UpdateFollowType(lFirstVer, lMidVer, lLastVer, curFirstVer, curMidVer, curLastVer, HttpResult.TypeUpdate.View);
-                UpdateFollowType(lFirstVer, lMidVer, lLastVer, curFirstVer, curMidVer, curLastVer, HttpResult.TypeUpdate.Type);
-                UpdateFollowType(lFirstVer, lMidVer, lLastVer, curFirstVer, curMidVer, curLastVer, HttpResult.TypeUpdate.Function);
-                UpdateFollowType(lFirstVer, lMidVer, lLastVer, curFirstVer, curMidVer, curLastVer, HttpResult.TypeUpdate.Sto);
-                UpdateFollowType(lFirstVer, lMidVer, lLastVer, curFirstVer, curMidVer, curLastVer, HttpResult.TypeUpdate.Data);
+                UpdateFollowType(lFirstVer, lMidVer, lLastVer, curFirstVer, curMidVer, curLastVer, listFileName);               
             }
         }
         /// <summary>
@@ -306,38 +308,30 @@ namespace Apzon.PosmanErp.Services.Repository
         /// <param name="cFirst">first hiện tại</param>
         /// <param name="cMid">mid hiện tại</param>
         /// <param name="cLast">last hiện tại</param>
-        /// <param name="fileName">loại cập nhật</param>
-        public void UpdateFollowType(int lFirst, int lMid, int lLast, int cFirst, int cMid, int cLast,TypeUpdate fileName)
+        /// <param name="listFileName">danh sách tên file update</param>
+        public void UpdateFollowType(int lFirst, int lMid, int lLast, int cFirst, int cMid, int cLast,List<string> listFileName)
         {
-            while (lFirst < cFirst || (lMid < cMid && lFirst == cFirst) || (lLast < cLast && lFirst == cFirst))
-            {
-                while ((lMid <= cMid && lFirst <= cFirst) || (lFirst < cFirst && lMid <= 9))
+            while (lFirst < cFirst || lFirst == cFirst && (lMid < cMid || lLast < cLast && lMid == cMid))
+            {               
+                lLast++;
+                if (lLast > 9)
                 {
-                    while ((lLast < cLast && lMid == cMid) || (lMid < cMid && lLast < 9) || (lFirst < cFirst && lLast < 9))
-                    {
-                        lLast++;
-                        string path = @"E:\clone\Scripts\" + lFirst + @"\" + lMid + @"\" + lLast + @"\Update" + fileName + ".txt";
-                        //ExecuteQueryFromFile(ListUpdate(path));
-
-                    }
                     lLast = 0;
                     lMid++;
-                    if (lMid <= cMid || (lFirst < cFirst && lMid < 9))
-                    {
-                        string path2 = @"E:\clone\Scripts\" + lFirst + @"\" + lMid + @"\" + lLast + @"\Update" + fileName + ".txt";
-                        //ExecuteQueryFromFile(ListUpdate(path2));
-                    }
                 }
-                lMid = 0;
-                lLast = 0;
-                lFirst++;
-                if (lFirst <= cFirst)
+                if(lMid>9)
                 {
-                    string path3 = @"E:\clone\Scripts\" + lFirst + @"\" + lMid + @"\" + lLast + @"\Update" + fileName + ".txt";
-                    //ExecuteQueryFromFile(ListUpdate(path3));
+                    lLast = 0;
+                    lMid = 0;
+                    lFirst++;
+                }
+                foreach (var item in listFileName)
+                {
+                    string path = @"E:\AplusAPI\Scripts\" + lFirst + @"\" + lMid + @"\" + lLast + @"\" + item + ".txt";
+                    //ExecuteQueryFromFile(ListUpdate(path));
                 }
             }
-        }            
+        }        
         
         /// <summary>
         /// đọc các câu query lấy được từ file
